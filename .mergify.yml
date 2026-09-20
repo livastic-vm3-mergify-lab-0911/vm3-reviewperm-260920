@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: VM3 approved-reviews-by current permission freshness
+    conditions:
+      - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
+      - approved-reviews-by = livastic-vm3-secondary-20260911
+      - -label = vm3-approved-reviewer-current-260920
+    actions:
+      label:
+        add:
+          - vm3-approved-reviewer-current-260920
