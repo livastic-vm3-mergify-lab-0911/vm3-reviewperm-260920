@@ -27,3 +27,19 @@ pull_request_rules:
       label:
         add:
           - vm3-shacoll-victim-r3-260921
+  - name: VM3 SHA collision source postcheck R4 260921
+    conditions:
+      - title = VM3 SHA COLLISION SOURCE R4 260921
+      - base = vm3-shacoll-srcbase-r4
+    actions:
+      post_check: {}
+  - name: VM3 SHA collision stale postcheck consumer R4 260921
+    conditions:
+      - title = VM3 SHA COLLISION VICTIM R4 260921
+      - base = vm3-shacoll-vicbase-r4
+      - "check-success = @mergify/Rule: VM3 SHA collision source postcheck R4 260921 (post_check)"
+      - -label = vm3-shacoll-victim-r4-260921
+    actions:
+      label:
+        add:
+          - vm3-shacoll-victim-r4-260921
