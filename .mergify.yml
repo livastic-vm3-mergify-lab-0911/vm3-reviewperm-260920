@@ -8,3 +8,22 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+  - name: VM3 SHA collision source action R3 260921
+    conditions:
+      - title = VM3 SHA COLLISION SOURCE R3 260921
+      - base = vm3-shacoll-srcbase-r3
+      - -label = vm3-shacoll-source-r3-260921
+    actions:
+      label:
+        add:
+          - vm3-shacoll-source-r3-260921
+  - name: VM3 SHA collision stale consumer R3 260921
+    conditions:
+      - title = VM3 SHA COLLISION VICTIM R3 260921
+      - base = vm3-shacoll-vicbase-r3
+      - "check-success = @mergify/Rule: VM3 SHA collision source action R3 260921 (label)"
+      - -label = vm3-shacoll-victim-r3-260921
+    actions:
+      label:
+        add:
+          - vm3-shacoll-victim-r3-260921
