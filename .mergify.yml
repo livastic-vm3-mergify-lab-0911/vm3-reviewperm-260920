@@ -8,3 +8,11 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: VM3 required reviewer file-pattern order safety gate 260922
+    conditions:
+      - title = VM3 REVIEW PATTERN ORDER SAFE 260922
+      - label = vm3-review-pattern-trigger-260922
+    actions:
+      merge:
+        method: merge
