@@ -1,9 +1,0 @@
-name: VM3 unmerged config dispatch probe 260922
-on:
-  workflow_dispatch:
-jobs:
-  marker:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harmless marker
-        run: echo VM3_TRUSTED_DISPATCH_260922
