@@ -8,3 +8,13 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: VM3 trusted github_actions dispatch positive 260922
+    conditions:
+      - number = 1
+      - label = vm3-trusted-dispatch-260922
+    actions:
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: vm3-unmerged-config-dispatch-260922.yml
