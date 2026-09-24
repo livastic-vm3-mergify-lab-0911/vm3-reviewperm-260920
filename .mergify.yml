@@ -8,3 +8,11 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: VM3 same-name check-run ordering probe 260925
+    conditions:
+      - title = VM3 DUAL EVENT CHECK ORDER 260925
+      - check-success = @github-actions/vm3-dual-event-gate
+    actions:
+      comment:
+        message: VM3_DUAL_EVENT_STALE_SUCCESS_MATCH_260925
