@@ -1,0 +1,16 @@
+name: VM3 dual check failure 260925
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  gate:
+    name: vm3-dual-event-gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delayed failure
+        shell: bash
+        run: |
+          sleep 15
+          echo "later check intentionally fails"
+          exit 1
