@@ -8,11 +8,3 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
-  - name: VM3 edit bot account revocation 260926
-    conditions:
-      - number = 1
-      - label = vm3-edit-bot-revoke-260926
-    actions:
-      edit:
-        draft: true
-        bot_account: livastic-vm3-secondary-20260911
