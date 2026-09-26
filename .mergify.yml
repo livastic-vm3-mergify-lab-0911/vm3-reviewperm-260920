@@ -1,10 +1,10 @@
 pull_request_rules:
-  - name: VM3 approved-reviews-by current permission freshness
+  - name: VM3 copy bot account revocation 260927
     conditions:
-      - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
-      - approved-reviews-by = livastic-vm3-secondary-20260911
-      - -label = vm3-approved-reviewer-current-260920
+      - base = vm3-copy-bot-revoke-base-260927
+      - title ~= ^VM3 COPY BOT REVOKE 260927
     actions:
-      label:
-        add:
-          - vm3-approved-reviewer-current-260920
+      copy:
+        branches:
+          - vm3-copy-bot-revoke-dest-260927
+        bot_account: livastic-vm3-secondary-20260911
