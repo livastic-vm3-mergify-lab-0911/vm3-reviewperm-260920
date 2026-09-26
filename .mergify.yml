@@ -1,10 +1,21 @@
 pull_request_rules:
-  - name: VM3 approved-reviews-by current permission freshness
+  - name: VM3 dismiss reviews bot account revocation 260927
     conditions:
-      - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
-      - approved-reviews-by = livastic-vm3-secondary-20260911
-      - -label = vm3-approved-reviewer-current-260920
+      - base = vm3-dismiss-revoke-base-260927
+      - title = VM3 DISMISS BOT REVOKE GO 260927
     actions:
-      label:
-        add:
-          - vm3-approved-reviewer-current-260920
+      dismiss_reviews:
+        approved: false
+        changes_requested: true
+        when: always
+        bot_account: livastic-vm3-secondary-20260911
+        message: VM3 controlled review dismissal
+
+  - name: VM3 merge after blocking review cleared 260927
+    conditions:
+      - base = vm3-dismiss-revoke-base-260927
+      - title = VM3 DISMISS BOT REVOKE GO 260927
+      - "#changes-requested-reviews-by = 0"
+    actions:
+      merge:
+        method: merge
