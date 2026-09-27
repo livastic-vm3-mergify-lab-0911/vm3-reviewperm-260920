@@ -1,10 +1,20 @@
 pull_request_rules:
-  - name: VM3 approved-reviews-by current permission freshness
+  - name: VM3 review bot-account positive 260927
     conditions:
-      - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
-      - approved-reviews-by = livastic-vm3-secondary-20260911
-      - -label = vm3-approved-reviewer-current-260920
+      - number = 1
+      - title = VM3 REVIEW BOT POSITIVE 260927
     actions:
-      label:
-        add:
-          - vm3-approved-reviewer-current-260920
+      review:
+        type: APPROVE
+        message: VM3 positive review bot-account control
+        bot_account: livastic-vm3-secondary-20260911
+
+  - name: VM3 review bot-account self 260927
+    conditions:
+      - number = 1
+      - title = VM3 REVIEW BOT SELF 260927
+    actions:
+      review:
+        type: APPROVE
+        message: VM3 treatment review self-approval
+        bot_account: "{{ author }}"
