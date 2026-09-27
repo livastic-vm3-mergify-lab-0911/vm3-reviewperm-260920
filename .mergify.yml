@@ -1,4 +1,12 @@
 pull_request_rules:
+  - name: VM3 review bot-account positive control 260927
+    conditions:
+      - number = 1
+      - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
+    actions:
+      review:
+        type: APPROVE
+        message: VM3_REVIEW_BOT_POSITIVE_260927
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
       - title = VM3 APPROVED REVIEWER PERMISSION FRESHNESS 260920
