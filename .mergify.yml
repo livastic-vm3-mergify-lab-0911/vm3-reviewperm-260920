@@ -8,3 +8,13 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: vm3 review author comment positive 260928
+    conditions:
+      - number = 1
+      - body = VM3_REVIEW_AUTHOR_COMMENT_POSITIVE_260928
+    actions:
+      review:
+        type: COMMENT
+        message: VM3_REVIEW_AUTHOR_COMMENT_POSITIVE_260928
+        bot_account: "{{ author }}"
