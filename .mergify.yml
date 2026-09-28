@@ -8,12 +8,3 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
-
-  - name: vm3 large pr hidden sensitive file 260928
-    conditions:
-      - number = 26
-      - title = VM3 LARGE PR FILE TRUNCATION PROBE 260928
-      - files ~= ^zzzz-sensitive/security-policy\.txt$
-    actions:
-      comment:
-        message: VM3_LARGE_PR_HIDDEN_FILE_MATCH_260928
