@@ -90,3 +90,23 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+
+  - name: vm3 review-requested team write positive 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - body = VM3_REVIEWREQ_TEAM_WRITE_HOLD_260929
+      - review-requested = @vm3-author-team-260919
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_TEAM_WRITE_MATCH_260929
+
+  - name: vm3 review-requested team read merge treatment 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - body = VM3_REVIEWREQ_TEAM_READ_RELEASE_260929
+      - review-requested = @vm3-author-team-260919
+    actions:
+      merge:
+        method: merge
