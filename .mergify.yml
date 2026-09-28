@@ -8,3 +8,21 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: vm3 changes-requested write positive 260928
+    conditions:
+      - number = 1
+      - body = VM3_CHANGES_REQUESTED_WRITE_POSITIVE_260928
+      - changes-requested-reviews-by = livastic-vm3-secondary-20260911
+    actions:
+      comment:
+        message: VM3_CHANGES_REQUESTED_WRITE_POSITIVE_MATCH_260928
+
+  - name: vm3 changes-requested read treatment 260928
+    conditions:
+      - number = 1
+      - body = VM3_CHANGES_REQUESTED_READ_TREATMENT_260928
+      - changes-requested-reviews-by = livastic-vm3-secondary-20260911
+    actions:
+      comment:
+        message: VM3_CHANGES_REQUESTED_READ_TREATMENT_MATCH_260928
