@@ -16,3 +16,21 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_LARGE_PR_HIDDEN_FILE_MATCH2_260928
+
+  - name: vm3 review-requested external write positive 260929
+    conditions:
+      - number = 1
+      - body = VM3_REVIEW_REQUESTED_WRITE_POSITIVE_260929
+      - review-requested = livastic-vm5-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEW_REQUESTED_WRITE_POSITIVE_MATCH_260929
+
+  - name: vm3 review-requested external read treatment 260929
+    conditions:
+      - number = 1
+      - body = VM3_REVIEW_REQUESTED_READ_TREATMENT_260929
+      - review-requested = livastic-vm5-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEW_REQUESTED_READ_TREATMENT_MATCH_260929
