@@ -1,7 +1,3 @@
-commands_restrictions:
-  refresh:
-    conditions: true
-
 pull_request_rules:
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
