@@ -20,11 +20,3 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
-
-  - name: vm3 rule deletion regression 260928
-    conditions:
-      - base = vm3-ruledelete-base-260928
-      - title = VM3 RULE DELETE CURRENT 260928
-    actions:
-      queue:
-        name: vm3-ruledelete-r1-260928
