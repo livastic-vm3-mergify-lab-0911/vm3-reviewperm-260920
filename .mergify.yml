@@ -1,3 +1,17 @@
+queue_rules:
+  - name: vm3-batch-source-close-260928
+    queue_conditions: []
+    merge_conditions:
+      - check-success = vm3-batch-ci-green-260928
+      - check-success = vm3-batch-release-260928
+    batch_size: 2
+    batch_max_wait_time: 5 seconds
+    merge_method: merge
+
+merge_queue:
+  mode: parallel
+  max_parallel_checks: 1
+
 pull_request_rules:
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
@@ -8,3 +22,19 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: vm3 merge batch source close A 260928
+    conditions:
+      - base = vm3-batch-close-target-260928
+      - title = VM3 MERGE BATCH SOURCE CLOSE A 260928
+    actions:
+      queue:
+        name: vm3-batch-source-close-260928
+
+  - name: vm3 merge batch source close B 260928
+    conditions:
+      - base = vm3-batch-close-target-260928
+      - title = VM3 MERGE BATCH SOURCE CLOSE B 260928
+    actions:
+      queue:
+        name: vm3-batch-source-close-260928
