@@ -34,3 +34,21 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_REVIEW_REQUESTED_READ_TREATMENT_MATCH_260929
+
+  - name: vm3 review-requested stale chain write positive 260929
+    conditions:
+      - number = 35
+      - body = VM3_REVIEWREQ_STALE_WRITE_POSITIVE_260929
+      - review-requested = livastic-vm3-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_STALE_WRITE_POSITIVE_MATCH_260929
+
+  - name: vm3 review-requested stale chain read treatment 260929
+    conditions:
+      - number = 35
+      - body = VM3_REVIEWREQ_STALE_READ_TREATMENT_260929
+      - review-requested = livastic-vm3-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_STALE_READ_TREATMENT_MATCH_260929
