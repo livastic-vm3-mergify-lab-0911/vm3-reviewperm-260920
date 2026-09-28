@@ -110,3 +110,23 @@ pull_request_rules:
     actions:
       merge:
         method: merge
+
+  - name: vm3 review-requested team write filegate positive 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - -files ~= ^vm3-reviewreq-release-trigger\.txt$
+      - review-requested = @vm3-author-team-260919
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_TEAM_FILEGATE_WRITE_MATCH_260929
+
+  - name: vm3 review-requested team read filegate merge 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - files ~= ^vm3-reviewreq-release-trigger\.txt$
+      - review-requested = @vm3-author-team-260919
+    actions:
+      merge:
+        method: merge
