@@ -52,3 +52,21 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_REVIEWREQ_STALE_READ_TREATMENT_MATCH_260929
+
+  - name: vm3 review-requested immediate write positive b 260929
+    conditions:
+      - number = 1
+      - body = VM3_REVIEWREQ_IMMEDIATE_WRITE_B_260929
+      - review-requested = livastic-vm5-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_IMMEDIATE_WRITE_B_MATCH_260929
+
+  - name: vm3 review-requested immediate read treatment b 260929
+    conditions:
+      - number = 1
+      - body = VM3_REVIEWREQ_IMMEDIATE_READ_B_260929
+      - review-requested = livastic-vm5-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_IMMEDIATE_READ_B_MATCH_260929
