@@ -1,3 +1,11 @@
+queue_rules:
+  - name: vm3-self-command-reentry-260928
+    queue_conditions: []
+    merge_conditions:
+      - label = vm3-self-command-never-release-260928
+    batch_size: 1
+    merge_method: merge
+
 pull_request_rules:
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
@@ -8,3 +16,11 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: vm3 comment-template self-command renderer 260928
+    conditions:
+      - number = 19
+      - title = VM3 SCOPE FALLBACK BINDING PROBE 260928
+    actions:
+      comment:
+        message: "{{ body }}"
