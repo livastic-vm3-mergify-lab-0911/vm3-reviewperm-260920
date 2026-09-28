@@ -21,6 +21,7 @@ pull_request_rules:
     conditions:
       - number = 19
       - title = VM3 SCOPE FALLBACK BINDING PROBE 260928
+      - body = @Mergifyio queue
     actions:
       comment:
         message: "{{ body }}"
