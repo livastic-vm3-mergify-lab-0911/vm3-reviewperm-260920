@@ -70,3 +70,23 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_REVIEWREQ_IMMEDIATE_READ_B_MATCH_260929
+
+  - name: vm3 review-requested lowpriv write positive 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - body = VM3_REVIEWREQ_LOWPRIV_WRITE_260929
+      - review-requested = livastic-vm3-secondary-20260911
+    actions:
+      comment:
+        message: VM3_REVIEWREQ_LOWPRIV_WRITE_MATCH_260929
+
+  - name: vm3 review-requested lowpriv read merge treatment 260929
+    conditions:
+      - base = vm3-reviewreq-stale-lowpriv-base-260929
+      - title = VM3 REVIEW REQUESTED STALE LOWPRIV 260929
+      - body = VM3_REVIEWREQ_LOWPRIV_READ_MERGE_260929
+      - review-requested = livastic-vm3-secondary-20260911
+    actions:
+      merge:
+        method: merge
