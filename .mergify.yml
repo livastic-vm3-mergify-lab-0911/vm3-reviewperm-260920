@@ -1,18 +1,3 @@
-queue_rules:
-  - name: vm3-checking-label-lifecycle-260928
-    queue_conditions: []
-    merge_conditions:
-      - check-success = vm3-checking-label-never-release-260928
-    batch_size: 1
-    merge_method: merge
-
-merge_queue:
-  mode: serial
-  max_parallel_checks: 1
-  queued_label: vm3-queued-control-260928
-  checking_label: vm3-checking-trusted-260928
-  dequeued_label: vm3-dequeued-control-260928
-
 pull_request_rules:
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
@@ -23,11 +8,3 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
-
-  - name: vm3 checking label lifecycle 260928
-    conditions:
-      - number = 19
-      - title = VM3 SCOPE FALLBACK BINDING PROBE 260928
-    actions:
-      queue:
-        name: vm3-checking-label-lifecycle-260928
