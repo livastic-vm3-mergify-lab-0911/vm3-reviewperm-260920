@@ -20,3 +20,10 @@ pull_request_rules:
       label:
         add:
           - vm3-approved-reviewer-current-260920
+
+  - name: vm3 base retarget train freshness 260928
+    conditions:
+      - title = VM3 BASE RETARGET TRAIN FRESHNESS 260928
+    actions:
+      queue:
+        name: vm3-ruledelete-r1-260928
