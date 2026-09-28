@@ -1,0 +1,1 @@
+vm3 rule deletion regression current test 260928
