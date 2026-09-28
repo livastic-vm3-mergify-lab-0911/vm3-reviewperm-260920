@@ -1,3 +1,15 @@
+queue_rules:
+  - name: vm3-inplace-status-revocation-260928
+    queue_conditions:
+      - check-success = vm3-inplace-security-gate-260928
+    batch_size: 1
+    max_checks_retries: 0
+    merge_method: fast-forward
+
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
+
 pull_request_rules:
   - name: VM3 approved-reviews-by current permission freshness
     conditions:
