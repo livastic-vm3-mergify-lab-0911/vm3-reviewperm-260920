@@ -16,3 +16,23 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_LARGE_PR_HIDDEN_FILE_MATCH2_260928
+
+  - name: vm3 copy bot write positive 260928
+    conditions:
+      - number = 28
+      - body = VM3_COPY_BOT_WRITE_POSITIVE_260928
+    actions:
+      copy:
+        branches:
+          - vm3-copy-bot-write-dest-260928
+        bot_account: livastic-vm3-secondary-20260911
+
+  - name: vm3 copy bot read treatment 260928
+    conditions:
+      - number = 28
+      - body = VM3_COPY_BOT_READ_TREATMENT_260928
+    actions:
+      copy:
+        branches:
+          - vm3-copy-bot-read-dest-260928
+        bot_account: livastic-vm3-secondary-20260911
