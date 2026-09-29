@@ -31,3 +31,26 @@ pull_request_rules:
       - "#commits-behind >= 1"
     actions:
       update:
+
+merge_queue:
+  mode: isolated
+  max_parallel_checks: 2
+
+scopes:
+  source:
+    files:
+      ordinary:
+        include:
+          - ordinary/**/*
+  barrier_files:
+    include:
+      - barrier/**/*
+
+queue_rules:
+  - name: vm3-isobar-260929
+    batch_size: 1
+    queue_conditions:
+      - base = vm3-isobar-target-260929
+    merge_conditions:
+      - check-success = vm3-isobar-release-260929
+    merge_method: merge
