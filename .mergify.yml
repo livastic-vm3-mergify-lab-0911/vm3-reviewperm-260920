@@ -16,11 +16,3 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_LARGE_PR_HIDDEN_FILE_MATCH2_260928
-
-
-  - name: Keep PRs up to date
-    conditions:
-      - -draft
-      - "#commits-behind >= 1"
-    actions:
-      update:
