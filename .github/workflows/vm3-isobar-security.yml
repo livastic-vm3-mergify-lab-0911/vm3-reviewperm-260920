@@ -1,0 +1,26 @@
+name: VM3 Isolated Barrier Security
+on:
+  pull_request:
+    branches:
+      - vm3-isobar-impact-target-260929
+permissions:
+  contents: read
+jobs:
+  guard:
+    name: vm3-isobar-security
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Enforce barrier-dependent security mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          mode=legacy
+          if [ -f barrier/security-mode.txt ]; then
+            mode="$(tr -d '\r\n' < barrier/security-mode.txt)"
+          fi
+          if [ "$mode" = "enforce" ] && [ -f ordinary/attack.txt ]; then
+            echo 'VM3_ISOBAR_SECURITY_BLOCK: enforce mode rejects ordinary/attack.txt'
+            exit 1
+          fi
+          echo "VM3_ISOBAR_SECURITY_PASS mode=$mode"

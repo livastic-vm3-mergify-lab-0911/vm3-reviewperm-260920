@@ -54,3 +54,12 @@ queue_rules:
     merge_conditions:
       - check-success = vm3-isobar-release-260929
     merge_method: merge
+
+  - name: vm3-isobar-impact-260929
+    batch_size: 1
+    queue_conditions:
+      - base = vm3-isobar-impact-target-260929
+    merge_conditions:
+      - check-success = vm3-isobar-security
+      - check-success = vm3-isobar-impact-release-260929
+    merge_method: merge
