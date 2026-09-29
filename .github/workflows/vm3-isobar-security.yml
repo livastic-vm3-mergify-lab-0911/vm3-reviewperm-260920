@@ -9,9 +9,12 @@ jobs:
   guard:
     name: vm3-isobar-security
     runs-on: ubuntu-latest
+    env:
+      HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+      BASE_REPO: ${{ github.event.pull_request.base.repo.full_name }}
     steps:
       - uses: actions/checkout@v5
-      - name: Enforce barrier-dependent security mode
+      - name: Enforce barrier-dependent fork policy
         shell: bash
         run: |
           set -euo pipefail
@@ -19,8 +22,9 @@ jobs:
           if [ -f barrier/security-mode.txt ]; then
             mode="$(tr -d '\r\n' < barrier/security-mode.txt)"
           fi
-          if [ "$mode" = "enforce" ] && [ -f ordinary/attack.txt ]; then
-            echo 'VM3_ISOBAR_SECURITY_BLOCK: enforce mode rejects ordinary/attack.txt'
+          echo "mode=$mode head_repo=$HEAD_REPO base_repo=$BASE_REPO"
+          if [ "$mode" = "enforce" ] && [ "$HEAD_REPO" != "$BASE_REPO" ]; then
+            echo 'VM3_ISOBAR_SECURITY_BLOCK: enforce mode rejects external fork PRs'
             exit 1
           fi
           echo "VM3_ISOBAR_SECURITY_PASS mode=$mode"
