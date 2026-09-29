@@ -16,3 +16,11 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_LARGE_PR_HIDDEN_FILE_MATCH2_260928
+
+  - name: VM3 large PR hidden sensitive protected merge 260929
+    conditions:
+      - title = VM3 LARGE PR SAME REPO HIDDEN FILE 260929
+      - -files ~= ^zzzz-sensitive/security-policy\.txt$
+    actions:
+      merge:
+        method: merge
