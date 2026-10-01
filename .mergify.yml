@@ -16,12 +16,3 @@ pull_request_rules:
     actions:
       comment:
         message: VM3_LARGE_PR_HIDDEN_FILE_MATCH2_260928
-
-  - name: VM3 automatic rebase Read-only protected head 261001
-    conditions:
-      - title = VM3 AUTO REBASE READONLY 261001
-      - author = livastic-vm5-secondary-20260911
-      - base = vm3-auto-rebase-v5-payload-261001
-      - "#commits-behind > 0"
-    actions:
-      rebase: {}
